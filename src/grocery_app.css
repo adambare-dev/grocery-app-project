@@ -47,7 +47,8 @@ html {
 h1 {
     font-family: 'Poppins', sans-serif;
 }
-.container p{
+
+.container p {
     font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
 }
 
@@ -138,8 +139,8 @@ footer p {
     }
 
     li {
-        padding: 1rem 1.25rem;
-        font-size: 1.1rem;
+        padding: 1.1rem 1.25rem;
+        font-size: 1.25rem;
     }
 
     .grocery-input {
@@ -160,9 +161,8 @@ footer p {
     }
 
     .trash-icon {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
     }
-    
 
 
 }
