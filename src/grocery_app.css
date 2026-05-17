@@ -1,0 +1,145 @@
+body {
+    background-color: #242424;
+    color: #f5f5f5;
+
+}
+
+html {
+    font-size: 100%;
+}
+
+/* container */
+
+.container {
+    margin: 3rem auto;
+    width: 22rem;
+    border: 1px solid #444;
+    padding: 1rem;
+    border-radius: .5rem;
+    /*   box-shadow: 4px 3px 2px rgba(250, 255, 18, 0.05); */
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* header sect_________________________________ */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.25rem;
+}
+
+.header h1 {
+    font-size: clamp(2rem, 4vw + 1rem, 2.5rem);
+}
+
+.cart-icon {
+    font-size: 1.8rem;
+    color: #61dafb;
+    transform: 0.3s ease;
+}
+
+.cart-icon:hover {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* input group sect________________________________ */
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: 2rem;
+}
+
+.grocery-input {
+    background: none;
+    border: 1px solid #646fcc;
+    padding: .5rem;
+    border-radius: .4rem;
+    color: white;
+    font-size: 1rem;
+    width: 90%;
+}
+
+.add-icon {
+    height: 1.95rem;
+    width: 1.95rem;
+    background: none;
+    border: 1px solid #646fcc;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 4px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: .3rem;
+    margin: 1rem 0;
+    gap: 1rem;
+    background-color: #22252a;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    padding: .75rem 1rem;
+
+}
+
+.bought {
+    text-decoration: line-through;
+    opacity: .5;
+    font-style: oblique;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #718096;
+}
+
+.trash-icon {
+    /*  color: #f5f5f5; */
+    /* color: rgba(223, 54, 54, 0.861); */
+    color: #0077cc;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.trash-icon:hover {
+    color: rgba(244, 70, 70, 0.856);
+    transition: 0.3s ease-in;
+}
+
+footer {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #d1d5db;
+    letter-spacing: 1px;
+    opacity: .8;
+    padding: .7rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    padding-top: 1rem;
+    border-top: 1px solid #444;
+}
+
+@media(max-width: 48rem) {
+    html {
+        font-size: 90%;
+    }
+
+    li {
+        padding: .1remrem 1.25rem;
+    }
+
+    .trash-icon {
+        font-size: 1.25rem;
+    }
+
+
+}
