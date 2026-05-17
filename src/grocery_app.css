@@ -47,6 +47,9 @@ html {
 h1 {
     font-family: 'Poppins', sans-serif;
 }
+.container p{
+    font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
+}
 
 /* input group sect________________________________ */
 
@@ -55,6 +58,7 @@ h1 {
     align-items: center;
     gap: .5rem;
     margin-bottom: 2rem;
+
 }
 
 .grocery-input {
@@ -137,9 +141,27 @@ footer p {
         padding: .1remrem 1.25rem;
     }
 
+    .grocery-input {
+        padding: .8rem;
+        font-size: 1.1rem;
+    }
+
+
+    .add-icon {
+        height: 2.55rem;
+        width: 2.55rem;
+        background: none;
+        border: 1px solid #646fcc;
+        color: white;
+        cursor: pointer;
+        transition: 0.2s;
+        border-radius: 4px;
+    }
+
     .trash-icon {
         font-size: 1.25rem;
     }
+    
 
 
 }
