@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 //import './index.css'
 import './grocery_app.css'
 import { FaPlus, FaTrash } from 'react-icons/fa6';
@@ -13,7 +13,7 @@ const itemListStyle = {
 };
 
 function Groceries() {
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(JSON.parse(localStorage.getItem("Item")) || []);
     const [input, setInput] = useState("")
     function addItem() {
         if (input.trim() === "") return;
@@ -38,6 +38,9 @@ function Groceries() {
             return item;
         }))
     };
+    useEffect(() => {
+        localStorage.setItem("Item", JSON.stringify(items));
+    }, [items])
     function hundleKeyDown(e) {
         if (e.key === "Enter") {
             addItem();
@@ -49,7 +52,7 @@ function Groceries() {
                 <div className='header'>
                     <h1>Groceries List</h1>
 
-                    <FaShoppingCart className='cart-icon'/>
+                    <FaShoppingCart className='cart-icon' />
 
                 </div>
 
