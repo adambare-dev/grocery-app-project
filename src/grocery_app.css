@@ -1,7 +1,7 @@
 body {
     background-color: #242424;
     color: #f5f5f5;
-
+    line-height: 1.5;
 }
 
 html {
@@ -14,10 +14,11 @@ html {
     margin: 3rem auto;
     width: 22rem;
     border: 1px solid #444;
+    
     padding: 1rem;
     border-radius: .5rem;
     /*   box-shadow: 4px 3px 2px rgba(250, 255, 18, 0.05); */
-    font-family: 'Courier New', Courier, monospace;
+    font-family: normal;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -59,7 +60,6 @@ h1 {
     align-items: center;
     gap: .5rem;
     margin-bottom: 2rem;
-
 }
 
 .grocery-input {
@@ -90,7 +90,9 @@ li {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: .3rem;
     margin: 1rem 0;
+    line-height: 1.5;
     gap: 1rem;
+
     background-color: #22252a;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     padding: .75rem 1rem;
@@ -135,12 +137,12 @@ footer p {
 
 @media(max-width: 48rem) {
     html {
-        font-size: 98%;
+        font-size: 98.8%;
     }
 
     li {
         padding: 1.2rem 1.25rem;
-        font-size: 1.3rem;
+        font-size: 1.7rem;
     }
 
     .grocery-input {
@@ -152,7 +154,7 @@ footer p {
     .add-icon {
         height: 2.65rem;
         width: 2.65rem;
-       
+
     }
 
     .trash-icon {
@@ -160,4 +162,9 @@ footer p {
     }
 
 
+}
+
+.items-count {
+    text-align: center;
+    font-weight: 300;
 }

@@ -10,11 +10,7 @@ import Groceries from './Groceries';
 //
 import './grocery_app.css'
 
-const itemListStyle = {
-  textAlign: "center",
-  marginTop: "2.5rem",
 
-};
 
 //componant
 function App() {
@@ -23,7 +19,7 @@ function App() {
     <>
 
 
-      <div>
+      <div className='layout'>
 
         <Groceries />
         <footer>

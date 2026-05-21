@@ -6,11 +6,7 @@ import { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import { FaShoppingBasket, FaShoppingCart, FaShoppingBag } from 'react-icons/fa';
 
-const itemListStyle = {
-    textAlign: "center",
-    marginTop: "2.5rem",
 
-};
 
 function Groceries() {
     const [items, setItems] = useState(JSON.parse(localStorage.getItem("Item")) || []);
@@ -80,7 +76,9 @@ function Groceries() {
                         <small onClick={() => removeItem(item.id)}
                             title='remove item'><FaTrashAlt className='trash-icon' /></small>
                     </li>)}
-                    <p style={itemListStyle}>{items.length < 1 ? "no items yet" : "items:" + items.length}</p>
+                    {/* <p className='items-count'>{items.length < 1 ? " No items yet" : "you have: " + items.length === 1 ? " item" : + " items"}</p> */}
+                    <p className='items-count'>{items.length === 0 ? "No items yet" : items.length === 1 ? "you have 1 item"
+                        : "you have " + items.length + " items"}</p>
                 </section>
 
             </div>
