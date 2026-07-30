@@ -1,4 +1,3 @@
-import { useState } from "react";
 //import './index.css'
 import Test from "./Test";
 //lifting part

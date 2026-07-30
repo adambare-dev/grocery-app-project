@@ -122,6 +122,7 @@ function Groceries() {
                       value={editText}
                       onChange={(e) => seteditText(e.target.value)}
                       className="edit-input"
+                      onKeyDown={(e) => e.key === "Enter" && updateItems()}
                     />
                     <FaRegSave
                       onClick={updateItems}
