@@ -4,7 +4,13 @@ import "./grocery_app.css";
 //import "./App.css";
 import { FaPlus, FaTrash } from "react-icons/fa6";
 import { useState } from "react";
-import { FaTrashAlt, FaEdit, FaRegSave, FaTimes } from "react-icons/fa";
+import {
+  FaTrashAlt,
+  FaEdit,
+  FaRegSave,
+  FaTimes,
+  FaSearch,
+} from "react-icons/fa";
 import {
   FaShoppingBasket,
   FaShoppingCart,
@@ -64,6 +70,11 @@ function Groceries() {
       addItem();
     }
   }
+  const [search, setSearch] = useState("");
+  const filtredItems = items.filter((i) =>
+    i.name.toLowerCase().includes(search.toLowerCase()),
+  );
+  const itemsBought = items.filter((i) => i.bought);
   return (
     <>
       <div className="grocery-app-con">
@@ -75,21 +86,34 @@ function Groceries() {
           </header>
         </section>
 
-        <section className="input-group">
-          <input
-            type="text"
-            placeholder="add item"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={hundleKeyDown}
-            className="grocery-input"
-          />
-          <FaPlus onClick={addItem} className="add-icon"></FaPlus>
+        <section className="inputs">
+          <article className="search-grpoup">
+            <FaSearch className="search-icon" />
+            <input
+              type="text"
+              placeholder="search item"
+              className="search-input"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </article>
+
+          <div className="add-group">
+            <input
+              type="text"
+              placeholder="add item"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={hundleKeyDown}
+              className="grocery-input"
+            />
+            <FaPlus onClick={addItem} className="add-icon"></FaPlus>
+          </div>
         </section>
 
         <section className="grocery-list-cont">
           <ul>
-            {items.map((item) => (
+            {filtredItems.map((item) => (
               <li key={item.id} className={item.bought ? "bought" : ""}>
                 {editId === item.id ? (
                   <section className="edit-sect">
@@ -99,23 +123,40 @@ function Groceries() {
                       onChange={(e) => seteditText(e.target.value)}
                       className="edit-input"
                     />
-                    <FaRegSave onClick={updateItems} className="save-icon">
+                    <FaRegSave
+                      onClick={updateItems}
+                      className="save-icon"
+                      title="save"
+                    >
                       Save
                     </FaRegSave>
                     <FaTimes
                       className="cancel-icon"
                       onClick={() => seteditId(null)}
+                      title="click to cancel"
                     >
                       cancel
                     </FaTimes>
                   </section>
                 ) : (
                   <div className="items-list-card">
-                    <p> {item.name}</p>
-                    <FaEdit onClick={() => editItem(item.id)}>edit</FaEdit>
+                    <p
+                      title={`items status: ${item.bought ? "purchased" : "pending"}`}
+                    >
+                      {" "}
+                      {item.name}
+                    </p>
+                    <FaEdit
+                      onClick={() => editItem(item.id)}
+                      className="edit-icon"
+                      title={`edit ${item.name}`}
+                    >
+                      edit
+                    </FaEdit>
                     <input
                       type="checkbox"
                       onChange={() => toggleItem(item.id)}
+                      title={`${item.bought ? "item purchased" : "mark as bought"}`}
                     />
 
                     <small
@@ -131,13 +172,22 @@ function Groceries() {
           </ul>
 
           {/* <p className='items-count'>{items.length < 1 ? " No items yet" : "you have: " + items.length === 1 ? " item" : + " items"}</p> */}
-          <p className="items-count">
-            {items.length === 0
-              ? "Add your items"
-              : items.length === 1
-                ? "you have 1 item"
-                : "you have " + items.length + " items"}
-          </p>
+          <section className="items-status">
+            <p>
+              Total Items: <span className="status-count">{items.length}</span>
+            </p>
+            <p>
+              Items bought:{" "}
+              <span className="status-count">{itemsBought.length}</span>
+            </p>
+            {/*  <p className="items-count">
+              {items.length === 0
+                ? "Add your items"
+                : items.length === 1
+                  ? "you have 1 item"
+                  : "items purchased: " + items.length + " items"}
+            </p> */}
+          </section>
 
           <button
             className="clear-all-btn"

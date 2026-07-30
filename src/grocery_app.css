@@ -1,11 +1,11 @@
 /* Container & Base Styles */
 .grocery-app-con {
-  max-width: 420px;
-  margin: 40px auto;
-  padding: 28px 20px;
+  max-width: 26.25rem;
+  margin: 2.5rem auto;
+  padding: 1.75rem 1.25rem;
   background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.08);
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
@@ -15,7 +15,7 @@
 /* Header Section */
 .groc-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .groc-header h1 {
@@ -29,29 +29,72 @@
 .cart-icon {
   font-size: 1.4rem;
   color: #16a34a;
-  margin-left: 10px;
+  margin-left: 0.625rem;
   vertical-align: middle;
 }
 
 .groc-header p {
-  margin: 6px 0 0 0;
+  margin: 0.375rem 0 0 0;
   font-size: 0.9rem;
   color: #64748b;
 }
 
-/* Input Group */
-.input-group {
+/* Inputs Section Wrapper */
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Search Group */
+.search-grpoup {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 24px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.875rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.375rem;
+  border: 0.0625rem solid #cbd5e1;
+  border-radius: 0.625rem;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.search-input:focus {
+  background-color: #ffffff;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 0.1875rem rgba(22, 163, 74, 0.15);
+}
+
+/* Add Item Group */
+.add-group {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
 }
 
 .grocery-input {
   flex: 1;
-  padding: 12px 16px;
-  border: 1px solid #cbd5e1;
-  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  border: 0.0625rem solid #cbd5e1;
+  border-radius: 0.625rem;
   font-size: 0.95rem;
   outline: none;
   box-sizing: border-box;
@@ -62,15 +105,15 @@
 
 .grocery-input:focus {
   border-color: #16a34a;
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+  box-shadow: 0 0 0 0.1875rem rgba(22, 163, 74, 0.15);
 }
 
 .add-icon {
-  padding: 12px;
+  padding: 0.75rem;
   font-size: 1.1rem;
   background-color: #16a34a;
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   cursor: pointer;
   transition:
     background-color 0.2s ease,
@@ -93,14 +136,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .grocery-list-cont li {
   background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 12px 16px;
+  border: 0.0625rem solid #e2e8f0;
+  border-radius: 0.625rem;
+  padding: 0.75rem 1rem;
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease;
@@ -121,12 +164,12 @@
 .items-list-card {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .items-list-card input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   cursor: pointer;
   accent-color: #16a34a;
 }
@@ -167,26 +210,31 @@
 .edit-sect {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   width: 100%;
 }
 
 .edit-input {
   flex: 1;
-  padding: 8px 12px;
-  border: 1px solid #86efac;
-  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  border: 0.0625rem solid #86efac;
+  border-radius: 0.375rem;
   font-size: 0.9rem;
   outline: none;
 }
 
 .edit-input:focus {
-  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+  box-shadow: 0 0 0 0.125rem rgba(22, 163, 74, 0.2);
 }
-
+.items-list-card .edit-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #4f555e;
+  cursor: pointer;
+}
 .save-icon {
   color: #16a34a;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: color 0.2s ease;
 }
@@ -209,35 +257,54 @@
 /* Items Count Footer */
 .items-count {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 1.25rem;
   font-size: 0.85rem;
   color: #64748b;
   font-weight: 500;
 }
+/* items status */
+.items-status {
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(1rem, 0.5vw + 1rem, 1.25rem);
+  padding: 0.75rem 0.5rem;
+}
+.items-status p {
+  font-size: clamp(0.875rem, 0.15vw + 0.875rem, 1rem);
+  color: #6b7280;
+  font-weight: 500;
+}
+.items-status p .status-count {
+  font-weight: 700;
+  color: #111827;
+  background-color: #f3f4f6;
+  margin-left: 0.5rem;
+}
 
+/* Clear All Button */
 .clear-all-btn {
   width: 100%;
-  padding: 0.8rem 1.5rem;
-  margin-top: 2rem;
-  font-size: 1;
-  font-weight: bold;
-  border: none;
-  border-radius: 0.6rem;
-  background-color: #0284c7;
-  width: 100%;
-
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 0.0625rem solid #e2e8f0;
+  border-radius: 0.625rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #64748b;
-  background-color: #f1f5f9;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
+
 .clear-all-btn:hover {
-  background-color: #e2e8f0;
-  color: #0f172a;
-  background-color: rgb(248, 68, 68);
-  color: white;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.clear-all-btn:active {
+  transform: scale(0.99);
 }
