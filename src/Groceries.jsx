@@ -40,10 +40,18 @@ function Groceries() {
 
   function addItem() {
     if (input.trim() === "") return;
+    const adddAt = new Date().toLocaleTimeString("en-us", {
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
     const newItem = {
       id: Date.now(),
       name: input,
       bought: false,
+      addetTime: adddAt,
     };
     // setItems([{ ...items, newItem }])
     setItems((prev) => [...prev, newItem]);
@@ -141,12 +149,16 @@ function Groceries() {
                   </section>
                 ) : (
                   <div className="items-list-card">
-                    <p
-                      title={`items status: ${item.bought ? "purchased" : "pending"}`}
-                    >
-                      {" "}
-                      {item.name}
-                    </p>
+                    <article>
+                      <p
+                        title={`items status: ${item.bought ? "purchased" : "pending"}`}
+                      >
+                        {" "}
+                        {item.name}
+                      </p>
+                      <small>Added at: {item.addetTime}</small>
+                    </article>
+
                     <FaEdit
                       onClick={() => editItem(item.id)}
                       className="edit-icon"

@@ -173,12 +173,19 @@
   cursor: pointer;
   accent-color: #16a34a;
 }
-
-.items-list-card p {
+.items-list-card article {
   margin: 0;
   flex: 1;
   font-size: 0.95rem;
-  font-weight: 500;
+
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.items-list-card p {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
   word-break: break-word;
 }
 
