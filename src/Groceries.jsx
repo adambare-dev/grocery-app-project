@@ -32,7 +32,19 @@ function Groceries() {
   }
   function updateItems() {
     const newItems = items.map((i) =>
-      i.id === editId ? { ...i, name: editText } : i,
+      i.id === editId
+        ? {
+            ...i,
+            name: editText,
+            addetTime: new Date().toLocaleTimeString("en-us", {
+              month: "short",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+              second: "2-digit",
+            }),
+          }
+        : i,
     );
     setItems(newItems);
     seteditId(null);
@@ -120,68 +132,74 @@ function Groceries() {
         </section>
 
         <section className="grocery-list-cont">
+          {filtredItems.length === 0 && (
+            <p style={{ textAlign: "center", marginTop: "1rem" }}>
+              No items yet
+            </p>
+          )}
           <ul>
-            {filtredItems.map((item) => (
-              <li key={item.id} className={item.bought ? "bought" : ""}>
-                {editId === item.id ? (
-                  <section className="edit-sect">
-                    <input
-                      type="text"
-                      value={editText}
-                      onChange={(e) => seteditText(e.target.value)}
-                      className="edit-input"
-                      onKeyDown={(e) => e.key === "Enter" && updateItems()}
-                    />
-                    <FaRegSave
-                      onClick={updateItems}
-                      className="save-icon"
-                      title="save"
-                    >
-                      Save
-                    </FaRegSave>
-                    <FaTimes
-                      className="cancel-icon"
-                      onClick={() => seteditId(null)}
-                      title="click to cancel"
-                    >
-                      cancel
-                    </FaTimes>
-                  </section>
-                ) : (
-                  <div className="items-list-card">
-                    <article>
-                      <p
-                        title={`items status: ${item.bought ? "purchased" : "pending"}`}
+            {filtredItems.length > 0 &&
+              filtredItems.map((item) => (
+                <li key={item.id} className={item.bought ? "bought" : ""}>
+                  {editId === item.id ? (
+                    <section className="edit-sect">
+                      <input
+                        type="text"
+                        value={editText}
+                        onChange={(e) => seteditText(e.target.value)}
+                        className="edit-input"
+                        onKeyDown={(e) => e.key === "Enter" && updateItems()}
+                      />
+                      <FaRegSave
+                        onClick={updateItems}
+                        className="save-icon"
+                        title="save"
                       >
-                        {" "}
-                        {item.name}
-                      </p>
-                      <small>Added at: {item.addetTime}</small>
-                    </article>
+                        Save
+                      </FaRegSave>
+                      <FaTimes
+                        className="cancel-icon"
+                        onClick={() => seteditId(null)}
+                        title="click to cancel"
+                      >
+                        cancel
+                      </FaTimes>
+                    </section>
+                  ) : (
+                    <div className="items-list-card">
+                      <article>
+                        <p
+                          title={`items status: ${item.bought ? "purchased" : "pending"}`}
+                          className="item-text"
+                        >
+                          {item.name}
+                        </p>
+                        <small>Added at: {item.addetTime}</small>
+                      </article>
 
-                    <FaEdit
-                      onClick={() => editItem(item.id)}
-                      className="edit-icon"
-                      title={`edit ${item.name}`}
-                    >
-                      edit
-                    </FaEdit>
-                    <input
-                      type="checkbox"
-                      onChange={() => toggleItem(item.id)}
-                      title={`${item.bought ? "item purchased" : "mark as bought"}`}
-                    />
+                      <FaEdit
+                        onClick={() => editItem(item.id)}
+                        className="edit-icon"
+                        title={`edit ${item.name}`}
+                      >
+                        edit
+                      </FaEdit>
+                      <input
+                        type="checkbox"
+                        onChange={() => toggleItem(item.id)}
+                        title={`${item.bought ? "item purchased" : "mark as bought"}`}
+                      />
 
-                    <small
-                      onClick={() => removeItem(item.id)}
-                      title="remove item"
-                    >
-                      <FaTrashAlt className="trash-icon" />
-                    </small>
-                  </div>
-                )}
-              </li>
-            ))}
+                      <small
+                        onClick={() => removeItem(item.id)}
+                        title="remove item"
+                      >
+                        <FaTrashAlt className="trash-icon" />
+                      </small>
+                    </div>
+                  )}
+                </li>
+              ))}
           </ul>
 
           {/* <p className='items-count'>{items.length < 1 ? " No items yet" : "you have: " + items.length === 1 ? " item" : + " items"}</p> */}

@@ -1,6 +1,7 @@
 /* Container & Base Styles */
 .grocery-app-con {
-  max-width: 26.25rem;
+  /* max-width: 26.25rem; */
+  width: calc(100% - 2rem);
   margin: 2.5rem auto;
   padding: 1.75rem 1.25rem;
   background-color: #ffffff;
@@ -181,10 +182,12 @@
   word-break: break-word;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 4px;
 }
-.items-list-card p {
-  font-size: 0.95rem;
+.items-list-card .item-text {
+  font-size: 1rem;
+  font-weight: 500;
   margin-bottom: 4px;
   word-break: break-word;
 }
