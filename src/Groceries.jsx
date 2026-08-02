@@ -55,7 +55,7 @@ function Groceries() {
     const adddAt = new Date().toLocaleTimeString("en-us", {
       month: "short",
       day: "numeric",
-      hour: "2-digit",
+      hour: "numeric",
       minute: "2-digit",
       second: "2-digit",
     });
