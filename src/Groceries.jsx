@@ -188,6 +188,7 @@ function Groceries() {
                         type="checkbox"
                         onChange={() => toggleItem(item.id)}
                         title={`${item.bought ? "item purchased" : "mark as bought"}`}
+                        checked={item.bought}
                       />
 
                       <small
